@@ -2,14 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import promise from 'redux-promise';
 
-import App from './components/app';
 import reducers from './reducers';
+import PostsIndex from './components/posts_index';
+import PostsNew from './components/posts_new';
+import Photogrid from './components/photogrid';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+// https://reduxblog.herokuapp.com/
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+    <div>
+    <BrowserRouter>
+      <div>
+        <div><Link to="/">Posts</Link></div>
+        <div><Link to="/posts/new">Posts New</Link></div>
+        <div><Link to="/photogrid">Photogrid</Link></div>
+        <hr/>
+        <Switch>
+          <Route path="/posts/new" component={PostsNew} />
+          <Route path="/photogrid" component={Photogrid} />
+          <Route path="/" component={PostsIndex} />
+        </Switch>
+    </div>
+    </BrowserRouter>
+  </div>
   </Provider>
   , document.querySelector('.container'));
