@@ -9,6 +9,8 @@ import reducers from './reducers';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 import Photogrid from './components/photogrid';
+import Single from './components/Single';
+import PostsShow from './components/posts_show';
 
 // https://reduxblog.herokuapp.com/
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -24,7 +26,9 @@ ReactDOM.render(
         <div><Link to="/photogrid">Photogrid</Link></div>
         <hr/>
         <Switch>
+          <Route path="/posts/:id" component={PostsShow} />
           <Route path="/posts/new" component={PostsNew} />
+          <Route path="/photogrid/:id" component={Single} />
           <Route path="/photogrid" component={Photogrid} />
           <Route path="/" component={PostsIndex} />
         </Switch>
