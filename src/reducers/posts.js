@@ -10,7 +10,7 @@ export default function(state = {}, action) {
       // const newState = { ...state }; // es5
       // newState[post.id] = post; // es5
       // return newState; // es5
-      return { ...state, [action.payload.code]: action.payload };  // es6
+      return { ...state, [action.payload.id]: action.payload };  // es6
     case GET_POSTS:
       console.log('GET_POSTS ', action.payload);
       return _.mapKeys(action.payload, 'code');

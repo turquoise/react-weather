@@ -8,13 +8,13 @@ class Photogrid extends Component {
 
   componentDidMount() {
     this.props.getPosts();
-    this.props.getComments();
+    //this.props.getComments();
   }
 
   renderPosts() {
-    return _.map(this.props.myposts, mypost => {
+    return _.map(this.props.myposts, (mypost, index) => {
       return (
-        <li className="list-group-item" key={mypost.code}>
+        <li key={index} className="list-group-item" >
           <img className="image" src={mypost.display_src} alt={mypost.caption} />
             <Link to={`/photogrid/${mypost.code}`} >
               {mypost.caption}

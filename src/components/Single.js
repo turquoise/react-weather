@@ -8,9 +8,10 @@ class Single extends Component {
 
   componentDidMount() {
     // provided by react router.
-    const id = this.props.match.params.id;
-    console.log('id ', id);
-    this.props.getPost(id);
+      const id = this.props.match.params.id;
+      //const id = this.props.match.myposts.id;
+      console.log('id ', id);
+      this.props.getPost(id);
   }
 
   render() {

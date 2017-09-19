@@ -5,6 +5,7 @@ import comments from '../data/comments';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const CREATE_POST = 'CREATE_POST';
+export const DELETE_POST = 'DELETE_POST';
 
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POST = 'GET_POST';
@@ -39,6 +40,15 @@ export function fetchPost(id) {
 
 }
 
+export function deletePost(id, callback) {
+  const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+    .then( () => callback());
+  return {
+    type: DELETE_POST,
+    payload: id
+  }
+}
+
 // Wes Bos Reduxstagram
 
 export function getPosts() {
@@ -49,7 +59,6 @@ export function getPosts() {
 }
 
 export function getPost(id) {
-  //const request = my_posts + '/' + id;
   return {
     type: GET_POST,
     payload: id

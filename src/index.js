@@ -26,8 +26,9 @@ ReactDOM.render(
         <div><Link to="/photogrid">Photogrid</Link></div>
         <hr/>
         <Switch>
-          <Route path="/posts/:id" component={PostsShow} />
+
           <Route path="/posts/new" component={PostsNew} />
+          <Route path="/posts/:id" component={PostsShow} />
           <Route path="/photogrid/:id" component={Single} />
           <Route path="/photogrid" component={Photogrid} />
           <Route path="/" component={PostsIndex} />

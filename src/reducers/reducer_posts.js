@@ -1,11 +1,13 @@
 import _ from 'lodash';
-import { FETCH_POSTS, FETCH_POST } from '../actions';
+import { FETCH_POSTS, FETCH_POST, DELETE_POST } from '../actions';
 
 
 export default function(state = {}, action) {
   switch (action.type) {
+    case DELETE_POST:
+      return _.omit(state, action.payload);
     case FETCH_POST:
-      console.log('FETCH_POST ', action.payload.data);
+      console.log('FETCH_POST ', action.payload.data.id);
       // const post = action.payload.data; // es5
       // const newState = { ...state }; // es5
       // newState[post.id] = post; // es5
