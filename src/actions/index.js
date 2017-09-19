@@ -2,18 +2,32 @@ import axios from 'axios';
 import my_posts from '../data/posts';
 import comments from '../data/comments';
 
+// Posts
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const CREATE_POST = 'CREATE_POST';
 export const DELETE_POST = 'DELETE_POST';
 
+// Reduxstagram posts
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POST = 'GET_POST';
 export const GET_COMMENTS = 'GET_COMMENTS';
 
+// Book example
+export const SELECT_BOOK = 'SELECT_BOOK';
+
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=PAPERCLIP1234';
 
+// Books
+export function selectBook(book) {
+  return {
+    type: SELECT_BOOK,
+    payload: book
+  }
+}
+
+// Posts
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
   return {
@@ -37,7 +51,6 @@ export function fetchPost(id) {
     type: FETCH_POST,
     payload: request
   }
-
 }
 
 export function deletePost(id, callback) {
@@ -50,7 +63,6 @@ export function deletePost(id, callback) {
 }
 
 // Wes Bos Reduxstagram
-
 export function getPosts() {
   return {
     type: GET_POSTS,
@@ -71,8 +83,6 @@ export function getComments() {
     payload: comments
   }
 }
-
-
 
 // // increment likes
 // export function increment(index) {
