@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Firebase from 'firebase';
 import my_posts from '../data/posts';
 import comments from '../data/comments';
 
@@ -7,6 +8,7 @@ export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const CREATE_POST = 'CREATE_POST';
 export const DELETE_POST = 'DELETE_POST';
+export const GET_FIREBASE_REDUXSTAGRAM = 'GET_FIREBASE_REDUXSTAGRAM';
 
 // Reduxstagram posts
 export const GET_POSTS = 'GET_POSTS';
@@ -27,11 +29,35 @@ const API_KEY = '?key=PAPERCLIP1234';
 const WEATHER_API_KEY = '46f0d79940ce443ee80d2a76da8bcdb8';
 const WEATHER_ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${WEATHER_API_KEY}`;
 
+// firebase
+//const Posts = firebase.initializeApp('https://github-11e53.firebaseio.com');
+
+// Reduxstagram firebase integration
+export function getFirebaseReduxstagram() {
+  return dispatch => {
+    Posts.on('value',snapshot => {
+      dispatch({
+        type: GET_REDUXSTAGRAM,
+        payload: snapshot.val()
+      });
+    });
+  };
+}
+
+export function createFirebaseReduxstagram(post) {
+  return dispatch => Posts.push(post);
+}
+
+export function deleteFirebaseReduxstagram(key) {
+  return dispatch => Posts.child(key).remove();
+}
+
+
 // Weather
 export function fetchWeather(city) {
   const url = `${WEATHER_ROOT_URL}&q=${city},GB`;
   const request = axios.get(url);
-  
+
   console.log('request ', request);
   return {
     type: FETCH_WEATHER,
