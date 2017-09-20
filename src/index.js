@@ -15,6 +15,7 @@ import Single from './components/photogrid_single';
 import PostsShow from './components/posts_show';
 //import BookList from './components/bookapp_list';
 import Reduxstagram from './components/reduxstagram';
+import ReduxstagramSingle from './components/reduxstagram_single';
 import BookApp from './components/bookapp';
 import Weather from './components/weather';
 
@@ -33,6 +34,7 @@ ReactDOM.render(
           <Route path="/posts/:id" component={PostsShow} />
           <Route path="/photogrid/:id" component={Single} />
           <Route path="/photogrid" component={Photogrid} />
+          <Route path="/reduxstagram/:id" component={ReduxstagramSingle} />
           <Route path="/reduxstagram" component={Reduxstagram} />
           <Route path="/weather" component={Weather} />
           <Route path="/books" component={BookApp} />

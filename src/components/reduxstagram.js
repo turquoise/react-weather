@@ -14,14 +14,13 @@ class Reduxstagram extends Component {
             <img className="image" src={post.display_src} />
           </div>
         </div>
-
       )
     });
   }
 
   render() {
     return (
-      <div>
+      <div photo-grid>
         <div className="list-group col-sm-6">
           { this.renderList()}
         </div>
