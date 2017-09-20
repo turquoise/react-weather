@@ -16,8 +16,28 @@ export const GET_COMMENTS = 'GET_COMMENTS';
 // Book example
 export const SELECT_BOOK = 'SELECT_BOOK';
 
+// Weather
+export const FETCH_WEATHER = 'FETCH_WEATHER';
+
+// Posts
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=PAPERCLIP1234';
+
+// Weather
+const WEATHER_API_KEY = '46f0d79940ce443ee80d2a76da8bcdb8';
+const WEATHER_ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${WEATHER_API_KEY}`;
+
+// Weather
+export function fetchWeather(city) {
+  const url = `${WEATHER_ROOT_URL}&q=${city},GB`;
+  const request = axios.get(url);
+  
+  console.log('request ', request);
+  return {
+    type: FETCH_WEATHER,
+    payload: request
+  }
+}
 
 // Books
 export function selectBook(book) {

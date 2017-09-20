@@ -6,6 +6,7 @@ import comments from './comments';
 import booksReducer from './reducer_books';
 import reduxPosts from './reducer_reduxstagram';
 import activeBook from './reducer_active_book';
+import reducerWeather from './reducer_weather';
 
 const rootReducer = combineReducers({
   posts: postsReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   form: formReducer,
   books: booksReducer,
   reduxPosts: reduxPosts,
-  activeBook: activeBook
+  activeBook: activeBook,
+  weather: reducerWeather
 
 });
 

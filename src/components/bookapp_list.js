@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectBook } from '../actions';
-import BookDetail from './book_detail';
+import BookDetail from './bookapp_detail';
 //import { bindActionCreators } from 'redux';
 
 class BookList extends Component {
