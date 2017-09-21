@@ -6,9 +6,6 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 import reducers from './reducers';
 
-
-
-
 import Weather from './components/weather';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
