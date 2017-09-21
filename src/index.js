@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 import promise from 'redux-promise';
 import reducers from './reducers';
 
@@ -15,9 +15,7 @@ ReactDOM.render(
     <div>
     <BrowserRouter>
       <div>
-        <Switch>
           <Route path="/" component={Weather} />
-        </Switch>
     </div>
     </BrowserRouter>
   </div>
