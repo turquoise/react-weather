@@ -8,7 +8,7 @@ class Weather extends Component {
   render() {
     return (
       <div>
-        <h4>Weather</h4>
+        <h4 className="weather">Weather</h4>
         <SearchBar />
         <WeatherList />
       </div>

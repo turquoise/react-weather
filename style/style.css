@@ -1,6 +1,10 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
 /* WEATHER */
+.weather {
+  margin-top: 20px;
+}
+
 td, th {
   vertical-align: middle !important;
   text-align: center !important;
