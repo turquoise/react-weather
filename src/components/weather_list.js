@@ -5,8 +5,8 @@ import GoogleMap from './weather_google_map';
 
 class WeatherList extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   renderWeather(cityData) {
